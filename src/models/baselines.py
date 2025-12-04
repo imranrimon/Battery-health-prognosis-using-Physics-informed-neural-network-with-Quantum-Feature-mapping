@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
-from src.models.Model import MLP as Encoder
-from src.models.Model import Predictor
+from src.models.pinn import MLP as Encoder
+from src.models.pinn import Predictor
 
 
 
