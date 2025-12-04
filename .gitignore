@@ -1,0 +1,24 @@
+# Large data and cache
+qkcache/
+data/
+results/
+results*/
+runs_spikan/
+runs_spikan_timed/
+spikan_mains/
+spikan_override/
+pretrained model/
+
+# Python
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+
+# Temporary files created during debugging
+move_files.py
+test_exec.py
+src/dummy.txt
+docs/dummy.txt
+test_cmd.txt
+test_output.txt
