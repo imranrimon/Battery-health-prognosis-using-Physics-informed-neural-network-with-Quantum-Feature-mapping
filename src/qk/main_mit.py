@@ -1,23 +1,3 @@
-import os, sys, argparse, time, json, csv, numpy as np, torch
-import torch.nn as nn
-import torch.nn.functional as F
-
-# ---------- import path & model ----------
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
-
-from model_qpin import PINN_QK  # must return (u, u_t, u_x, g)
-
-# robust dataloader import
-try:
-    from dataloader.dataloader import MITdata
-except ModuleNotFoundError:
-    from dataloader import MITdata
-
-# ---------- device / perf ----------
-DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
-if DEVICE == 'cuda':
     try: torch.cuda.set_device(0)
     except Exception: pass
     _ = torch.empty(1, device='cuda'); torch.cuda.synchronize()
