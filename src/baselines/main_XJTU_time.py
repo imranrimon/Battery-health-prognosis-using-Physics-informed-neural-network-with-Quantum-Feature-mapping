@@ -1,7 +1,7 @@
 # main_XJTU_time.py (single-batch, single-experiment, no early stop)
 import argparse, os, time, json, csv, datetime, torch
-from dataloader.dataloader import XJTUdata
-from Model.Model import PINN
+from src.dataloaders.dataloader import XJTUdata
+from src.models.pinn import PINN
 
 os.environ['CUDA_VISIBLE_DEVICES'] = os.environ.get('CUDA_VISIBLE_DEVICES','0')
 

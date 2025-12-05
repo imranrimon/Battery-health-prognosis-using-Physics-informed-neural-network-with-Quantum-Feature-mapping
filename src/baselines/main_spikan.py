@@ -35,7 +35,7 @@ assert spec.loader is not None
 spec.loader.exec_module(model_pkg)
 
 from src.dataloaders.dataloader import XJTUdata
-from Model import PINN
+from src.models.pinn import PINN
 
 # ---------------------------------------------------------------------
 # Data loading (from your original main_XJTU logic)

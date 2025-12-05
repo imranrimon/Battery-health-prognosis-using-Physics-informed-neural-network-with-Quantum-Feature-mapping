@@ -16,12 +16,14 @@ The following directories and files contain the novel Quantum PINN implementatio
     -   `main_xjtu_timed.py`: Performance benchmarking script for the Quantum model.
 
 ### Baseline / Reference Code
-This project builds upon the baseline PINN implementation by **Wang Fujin**. The following components serve as the baseline and data infrastructure:
+This project builds upon the baseline PINN implementation by **Wang Fujin**. The baseline code has been organized into the `src/baselines/` directory to distinguish it from the core contributions.
 
+-   **`src/baselines/`**: Contains the main execution scripts for the baseline models (adapted from Wang Fujin).
+    -   `main_XJTU.py`, `main_MIT.py`, etc.: Baseline training scripts.
+    -   `main_spikan.py`: Another baseline entry point.
 -   **`src/models/pinn.py`**: Standard PINN implementation (Baseline).
 -   **`src/models/baselines.py`**: Other baseline models (MLP, CNN).
 -   **`src/dataloaders/`**: Data loading utilities for XJTU, MIT, HUST, and TJU datasets.
--   **`src/spikan/main.py`**: Main training script for the baseline PINN.
 
 > **Credit**: The baseline PINN code and data loading logic are adapted from [Wang Fujin's PINN4SOH repository](https://github.com/wang-fujin/PINN4SOH).
 
@@ -30,9 +32,9 @@ This project builds upon the baseline PINN implementation by **Wang Fujin**. The
 ```
 ├── src/
 │   ├── qk/             # [My Contribution] Quantum Kernel & QPINN Models
+│   ├── baselines/      # [Baseline] Main scripts for Wang Fujin's baseline
 │   ├── models/         # [Baseline] Standard PINN & Baselines
 │   ├── dataloader/     # [Baseline] Data Loading Utilities
-│   ├── spikan/         # [Baseline] Main script for standard PINN
 │   └── utils/          # General Utilities
 ├── data/               # Dataset directory (XJTU, MIT, etc.)
 ├── docs/               # Documentation
@@ -49,10 +51,10 @@ python src/qk/main_xjtu.py --xjtu_batch 2C --epochs 50
 ```
 
 ### Running Baseline PINN
-To run the baseline PINN model:
+To run the baseline PINN model (Wang Fujin's implementation):
 
 ```bash
-python src/spikan/main.py --dataset XJTU --batch 2C
+python src/baselines/main_XJTU.py --batch 2C
 ```
 
 ## Requirements
