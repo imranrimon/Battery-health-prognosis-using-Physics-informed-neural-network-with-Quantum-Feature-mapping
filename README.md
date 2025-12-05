@@ -16,11 +16,10 @@ The following directories and files contain the novel Quantum PINN implementatio
     -   `main_xjtu_timed.py`: Performance benchmarking script for the Quantum model.
 
 ### Baseline / Reference Code
-This project builds upon the baseline PINN implementation by **Wang Fujin**. The baseline code has been organized into the `src/baselines/` directory to distinguish it from the core contributions.
+This project builds upon the baseline PINN implementation by **Wang Fujin**. The following components serve as the baseline and data infrastructure:
 
--   **`src/baselines/`**: Contains the main execution scripts for the baseline models (adapted from Wang Fujin).
-    -   `main_XJTU.py`, `main_MIT.py`, etc.: Baseline training scripts.
-    -   `main_spikan.py`: Another baseline entry point.
+-   **`src/baseline_wang_fujin/`**: Contains the original baseline training scripts.
+    -   `main_XJTU.py`, `main_MIT.py`, `main_HUST.py`, `main_TJU.py`: Baseline training scripts.
 -   **`src/models/pinn.py`**: Standard PINN implementation (Baseline).
 -   **`src/models/baselines.py`**: Other baseline models (MLP, CNN).
 -   **`src/dataloaders/`**: Data loading utilities for XJTU, MIT, HUST, and TJU datasets.
@@ -31,14 +30,14 @@ This project builds upon the baseline PINN implementation by **Wang Fujin**. The
 
 ```
 ├── src/
-│   ├── qk/             # [My Contribution] Quantum Kernel & QPINN Models
-│   ├── baselines/      # [Baseline] Main scripts for Wang Fujin's baseline
-│   ├── models/         # [Baseline] Standard PINN & Baselines
-│   ├── dataloader/     # [Baseline] Data Loading Utilities
-│   └── utils/          # General Utilities
-├── data/               # Dataset directory (XJTU, MIT, etc.)
-├── docs/               # Documentation
-└── README.md           # This file
+│   ├── qk/                     # [My Contribution] Quantum Kernel & QPINN Models
+│   ├── baseline_wang_fujin/    # [Baseline] Original training scripts by Wang Fujin
+│   ├── models/                 # [Baseline] Standard PINN & Baselines
+│   ├── dataloader/             # [Baseline] Data Loading Utilities
+│   └── utils/                  # General Utilities
+├── data/                       # Dataset directory (XJTU, MIT, etc.)
+├── docs/                       # Documentation
+└── README.md                   # This file
 ```
 
 ## Usage
@@ -50,11 +49,18 @@ To train the Quantum PINN model on the XJTU dataset:
 python src/qk/main_xjtu.py --xjtu_batch 2C --epochs 50
 ```
 
-### Running Baseline PINN
-To run the baseline PINN model (Wang Fujin's implementation):
+To run on other datasets:
+```bash
+python src/qk/main_mit.py --epochs 50
+python src/qk/main_hust.py --epochs 50
+python src/qk/main_tju.py --epochs 50
+```
+
+### Running Baseline PINN (Wang Fujin's Code)
+To run the baseline PINN model using the scripts in `src/baseline_wang_fujin/`:
 
 ```bash
-python src/baselines/main_XJTU.py --batch 2C
+python src/baseline_wang_fujin/main_XJTU.py --batch 2C
 ```
 
 ## Requirements
